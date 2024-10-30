@@ -154,7 +154,7 @@ async function onSearch(location) {
  * Biður notanda um leyfi gegnum vafra.
  */
 async function onSearchMyLocation() {
-  // TODO útfæra
+  // TODO útfæra SKOÐA
   renderLoading();
   if (!navigator.geolocation) {
     renderError(
