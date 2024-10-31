@@ -5,7 +5,7 @@
   "dev": "browser-sync start --server --files ./src/ styles.css index.html",
   "copy:html": "cpy ./*.html ./build/",
   "copy:css": "cpy ./*.css ./build/",
-  "copy:lib": "cpy ./src/lib ./build/lib --recursive",
+  "copy:lib": "cpy ./src/lib/**/* ./build/lib --parents",
   "copy:js": "cpy ./src/*.js ./build/",
   "build": "npm run copy:html && npm run copy:css && npm run copy:lib && npm run copy:js",
   "lint": "eslint ./src",
