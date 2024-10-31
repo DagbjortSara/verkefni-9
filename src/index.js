@@ -154,8 +154,15 @@ async function onSearch(location) {
  * Biður notanda um leyfi gegnum vafra.
  */
 async function onSearchMyLocation() {
-  // TODO útfæra SKOÐA
+  const userConsent = confirm("Má þessi síða nota staðsetninguna þína?");
+
+  if (!userConsent) {
+    renderError(new Error("Aðgegni að staðsetningu hafnað af notanda."));
+    return;
+  }
+
   renderLoading();
+
   if (!navigator.geolocation) {
     renderError(
       new Error("Landfræðileg staðsetning er ekki studd af vafranum þínum.")
@@ -172,9 +179,9 @@ async function onSearchMyLocation() {
         lng: longitude,
       });
     },
-    (error) => {
+    () => {
       renderError(
-        new Error("Aðgengi að staðsetningu hafnað eða er ekki tiltæk.")
+        new Error("Aðgegni að staðsetningu hafnað eða hún er ekki tiltæk.")
       );
     }
   );
